@@ -11,8 +11,11 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("/api/v1")
 public class App extends Application {
 
-	@SuppressWarnings("unchecked")
+	private static final Class<?>[] classes = new Class<?>[] { //
+			MembersApi.class //
+	};
+
 	public Set<Class<?>> getClasses() {
-        return new HashSet<Class<?>>(asList(Test.class));
-    }
+		return new HashSet<>(asList(classes));
+	}
 }

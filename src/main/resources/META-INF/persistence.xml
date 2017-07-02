@@ -4,14 +4,15 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="vveb">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>com.fmi.vveb.db.TestEntity</class>
+		<class>com.fmi.vveb.db.entity.Member</class>
+		<class>com.fmi.vveb.db.entity.Directory</class>
 		<properties>
 			<property name="eclipselink.target-database" value="Derby" />
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:derby:/Users/miro/Documents/Derby-db/VVEBDB;create=true" />
-			<property name="javax.persistence.jdbc.user" value="test" />
-			<property name="javax.persistence.jdbc.password" value="test" />
+			<property name="javax.persistence.jdbc.user" value="miro" />
+			<property name="javax.persistence.jdbc.password" value="miro" />
 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
 		</properties>
 	</persistence-unit>
