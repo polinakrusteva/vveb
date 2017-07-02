@@ -24,7 +24,7 @@ public class MembersApi extends BasicAuthAPI {
 	@GET
 	public Response getMembers() {
 		try {
-			authorizeUser();
+			lookupAndAuthorizeUser();
 			return ok().build();
 		} catch (NotAuthorizedException e) {
 			return REQUIRE_AUTH_RESPONSE;

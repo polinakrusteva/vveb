@@ -1,6 +1,6 @@
 package com.fmi.vveb.db.entity;
 
-import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,8 @@ import javax.persistence.OneToOne;
 public class Member {
 
 	@Id
-	@GeneratedValue(strategy = AUTO)
-	@Column(name = "ID", nullable = false, insertable = false)
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "ID", insertable = false)
 	private long id;
 
 	@Column(nullable = false, unique = true)

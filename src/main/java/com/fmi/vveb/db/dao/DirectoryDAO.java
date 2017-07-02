@@ -17,15 +17,18 @@ public class DirectoryDAO {
 		return em.find(Directory.class, uri);
 	}
 
+	public void addDirectoryTransactional(String uri, Member owner) {
+		em.getTransaction().begin();
+		addDirectory(uri, owner);
+		em.getTransaction().commit();
+	}
+
 	public void addDirectory(String uri, Member owner) {
 		Directory d = new Directory();
 		d.setUri(uri);
 		d.setOwner(owner);
 		owner.setRootDirectory(d);
-
-		em.getTransaction().begin();
 		em.persist(d);
-		em.getTransaction().commit();
 	}
 
 	public void removeDirectory(String uri) {

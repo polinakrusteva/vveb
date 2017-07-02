@@ -8,14 +8,15 @@ import javax.ws.rs.HeaderParam;
 
 import com.fmi.vveb.db.entity.Member;
 
+// TODO: Should be CommonAPI and have composed authentication strategy
 public class BasicAuthAPI {
 
 	private static final String BASIC = "Basic";
 
 	@HeaderParam("authorization")
-	protected String auth;
+	private String auth;
 
-	protected void authorizeUser() throws NotAuthorizedException {
+	protected Member lookupAndAuthorizeUser() throws NotAuthorizedException {
 		if (auth == null || !auth.startsWith(BASIC)) {
 			throw new NotAuthorizedException();
 		}
@@ -34,5 +35,7 @@ public class BasicAuthAPI {
 		if (!password.equals(new String(Base64.getDecoder().decode(member.getPassword())))) {
 			throw new NotAuthorizedException();
 		}
+
+		return member;
 	}
 }

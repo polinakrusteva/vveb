@@ -12,7 +12,8 @@ import javax.ws.rs.core.Application;
 public class App extends Application {
 
 	private static final Class<?>[] classes = new Class<?>[] { //
-			MembersApi.class //
+			MembersApi.class, //
+			RepositoryApi.class //
 	};
 
 	public Set<Class<?>> getClasses() {
