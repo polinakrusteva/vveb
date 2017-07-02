@@ -48,6 +48,17 @@ public class DTOCollector {
 				.collect(toList());
 	}
 
+	public static DirectoryDTO getDirectory(String uri, String memberRootDir) {
+		File f = getFacade().getRelativeFile(uri);
+		return new DirectoryDTO(encode(getFacade().cutPathRelativeToMemberRoot(f.getAbsolutePath(), memberRootDir)),
+				getFiles(uri, memberRootDir));
+	}
+
+	public static DirectoryDTO getDirectory(File file, String memberRootDir) {
+		return new DirectoryDTO(encode(getFacade().cutPathRelativeToMemberRoot(file.getAbsolutePath(), memberRootDir)),
+				getFiles(file, memberRootDir));
+	}
+
 	private static String encode(String s) {
 		return Base64.getEncoder().encodeToString(s.getBytes());
 	}

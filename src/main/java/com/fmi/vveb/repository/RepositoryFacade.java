@@ -32,6 +32,10 @@ public class RepositoryFacade {
 		return new ArrayList<>(asList(f.listFiles()));
 	}
 
+	public void createDirectoryForMember(String uri, String memberRootDir) {
+		createDirectory(memberRootDir + "/" + uri);
+	}
+
 	public void createDirectory(String uri) {
 		File file = getRelativeFile(uri);
 		if (file.exists()) {
@@ -56,7 +60,11 @@ public class RepositoryFacade {
 	}
 
 	public String cutPathRelativeToMemberRoot(String path, String memberRootDir) {
-		return path.substring((this.rootUri + "/" + memberRootDir).length());
+		if (path.length() == (this.rootUri + memberRootDir).length()) {
+			return "/";
+		}
+
+		return path.substring((this.rootUri + memberRootDir).length());
 	}
 
 	public String getRootUri() {
