@@ -1,8 +1,49 @@
 <html>
-	<head>
-		<title>Ho</title>
-	</head>
-	<body>
-		<h2>Hello World!</h2>
-	</body>
+
+<head>
+<title>File Me Up</title>
+<link rel='icon' href='image/png' href='favicon.ico'>
+<link rel='stylesheet' href='resources/css/styles.css' type='text/css'>
+<link rel='stylesheet' href='resources/css/bootstrap.min.css'
+	type='text/css'>
+</head>
+
+<body class='main-page'>
+	<div>
+		<div class='back-div'></div>
+		<div class='jumbotron welcome-jumbo'>
+			<img class='sharing-img' src='resources/img/file-sharing.png'>
+			<h1>Welcome to FileMeUp</h1>
+			<p>Share your files with your friends.</p>
+			<button type='button' class='btn btn-lg btn-primary'
+				onclick='document.getElementById("register-modal").style.display="block"'>Register</button>
+			<div id='register-modal' class='modal'>
+				<form id='register-form' class='modal-content animate'>
+					<div class='container'>
+						<label><b>Username</b></label> <input type="text"
+							placeholder="Enter username" name="username" id="reg-username"
+							required> <label><b>Password</b></label> <input
+							type="password" placeholder="Enter password" name="password"
+							id="reg-passwod" required>
+						<div class="clearfix">
+							<button type="button"
+								onclick="document.getElementById('register-modal').style.display='none'"
+								class="btn btn-lg btn-primary">Cancel</button>
+							<button type="submit" onclick='javascript:createUser()'
+								class="btn btn-lg btn-primary">Sign Up</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<a href='contents.html'>
+				<button type='button' class='btn btn-lg btn-primary'>Start
+					sharing</button>
+			</a>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src='resources/js/users.js'></script>
+</body>
 </html>
